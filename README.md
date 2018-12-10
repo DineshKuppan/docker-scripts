@@ -15,7 +15,17 @@ A Sample hello world docker scripts for learning purpose
 
     docker run alpine:latest "echo" "Hello, World"
 
-### Now compile the "HelloWorld.java" file
+### Now Create a HelloWorld program in Java
+
+```
+public class HelloWorld {
+  public static void main(String[] args) {
+    System.out.println("Hello Docker");    
+  }    
+}
+```
+
+### Compile the HelloWorld.java file
 
   javac HelloWorld.javac
 
@@ -25,10 +35,12 @@ A Sample hello world docker scripts for learning purpose
 
 ### Create a Dockerfile & copy-paste the below content in Dockerfile
 
+```
 FROM alpine:latest
 ADD HelloWorld.class HelloWorld.class
 RUN apk --update add openjdk8-jre
 ENTRYPOINT ["java", "-Djava.security.egd=file:dev/./urandom", "HelloWorld"]
+```
 
 # Build an image from the created Dockerfile
 
